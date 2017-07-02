@@ -25,12 +25,12 @@ package voxellib;
 import java.util.function.*; //for the lambdas
 
 /**
- * a Class containing the algorithms for generating triangular meshes from
+ * A class containing the algorithms for generating triangular meshes from
  * float voxel data. It emits the vertices of each face, with correct winding,
  * and closes also the boundaries of the cube defined by the voxel data.
  *	@author Pablo Miranda Carranza
  */
-
+ 
 public class Isosurface{
 
 	private Consumer< float[]>  vertexEmiter;
@@ -46,7 +46,7 @@ public class Isosurface{
 	}
 
 	/**
-	 * Generates a mesh made out of triangular faces from from voxel data consisting 
+	 * Generates a mesh made out of triangular faces from voxel data consisting 
 	 * of a three dimensional array of float values. It uses a marching cubes algorithm 
 	 * for generating a surface defining the interface between values larger and smaller 
 	 * than a given level value. See <a href="https://en.wikipedia.org/wiki/Marching_cubes"> 

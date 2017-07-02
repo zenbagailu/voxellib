@@ -33,7 +33,7 @@ import processing.core.*; //for the QUADS definition and drawing
 
 
 /**
- * a Class to generate meshes from voxel data, render and save them 
+ * A class to generate meshes from voxel data, render and save them 
  * in .stl (sterolithography) binary format.
  *	@author Pablo Miranda Carranza
  */

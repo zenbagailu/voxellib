@@ -25,9 +25,9 @@ package voxellib;
 import java.util.function.*;
 
 /**
- * a Class implementing the classic marching cube algorithm with look-up tables.
+ * A class implementing the classic marching cube algorithm with look-up tables.
  * The tables are defined on the separate LookUpTables class for convenience and readability.
- *  @author Pablo Miranda Carranza
+ * @author Pablo Miranda Carranza
  */
 
 
@@ -36,7 +36,7 @@ public class MarchingCube
 
   private float level;
   private Consumer< float[]>  vertexEmiter;
-  //this is just a simple way of keeping trac off the ofsets of the positions
+  //this is just a simple way of keeping track off the ofsets of the positions
   private static final int[][] offsets={{0,0,0},{1,0,0},{1,1,0},{0,1,0},{0,0,1},{1,0,1},{1,1,1},{0,1,1}};
   //the list of edges. Each index in edges refers to an index in offsets (or indices) indicating a position
   //they represent the bottom edges, the top edges, and the sizes of the cube...
@@ -136,7 +136,6 @@ public class MarchingCube
      an edge between two vertices, each with their own scalar value
   */
 
-
    /**
    *  Simple linear interpolation for calculating the vertices of the faces. 
    *  The function needs to be identical to the used in the MarchingSquare class, if
@@ -152,36 +151,10 @@ public class MarchingCube
   **/
 
 
-
-
   private float[] interpolate(int[] pos0,float val0, int[] pos1, float val1){
     float[] vertex = new float[3];
 
-    //and MarchingSquare
-    // int errorUlps=4;
 
-    // if(almostEqual(val0,level,errorUlps)){
-    //   vertex[0]=pos0[0];
-    //   vertex[1]=pos0[1];
-    //   vertex[2]=pos0[2];
-    // }
-    // if(almostEqual(val1,level,errorUlps)){
-    //   vertex[0]=pos1[0];
-    //   vertex[1]=pos1[1];
-    //   vertex[2]=pos1[2];
-    // }
-    // if(almostEqual(val0,val1,errorUlps)){
-    //   vertex[0]=pos0[0];
-    //   vertex[1]=pos0[1];
-    //   vertex[2]=pos0[2];
-    // }
-    // else{
-
-    //   float mu = (level - val0) / (val1 - val0);
-    //   vertex[0] = pos0[0] + mu * (pos1[0] - pos0[0]);
-    //   vertex[1] = pos0[1] + mu * (pos1[1] - pos0[1]);
-    //   vertex[2] = pos0[2] + mu * (pos1[2] - pos0[2]);
-    // }
 
     float mu = (level - val0) / (val1 - val0);
     vertex[0] = pos0[0] + mu * (pos1[0] - pos0[0]);
@@ -190,25 +163,5 @@ public class MarchingCube
 
     return vertex;
   }
-
-  //comparison using ulps. Adapted from:
-  //https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
-  //a bit overkill, but better safe than sorry.
-  // private static boolean almostEqual(float f0, float f1, int maxUlpsDiff){
-  //   // Different signs means they do not match.
-  //   if (Math.signum(f0) != Math.signum(f1)){
-  //       // Check for equality to make sure +0==-0
-  //     if (f0 == f1){
-  //        return true;
-  //      }
-  //      return false;
-  //   }
-  //   // Find the difference in ULPs.
-  //   int ulpsDiff = Math.abs(Float.floatToIntBits(f0) - Float.floatToIntBits(f1));
-  //   if (ulpsDiff <= maxUlpsDiff){
-  //     return true;
-  //   }
-  //   return false;
-  // }
 
 }

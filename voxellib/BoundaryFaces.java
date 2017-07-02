@@ -25,7 +25,7 @@ package voxellib;
 import java.util.function.*; //for the lambdas
 
 /**
- * a Class containing the algorithms for generating quad meshes from
+ * This class containing the algorithms for generating quad meshes from
  * boolean voxel data.
  *	@author Pablo Miranda Carranza
  */
@@ -61,11 +61,11 @@ public class BoundaryFaces{
 	/**
 	 * Generates a mesh made out of quads from voxel data in the form of a
 	 * three dimensional array of booleans. If the boolean value in the voxel
-	 * is true, it will generate a box in tis place, otherwise it will leave it empty.
+	 * is true, it will generate a box in its place, otherwise it will leave it empty.
 	 * The generated mesh consists only of the quad faces between true and false voxels,
 	 * returned as sequences of vertices reported through the Consumer{@literal <}float[]{@literal >}
-	 * vertexEmiter field and with consisting winding that defines the interior of the mesh as the voxels
-	 * with a true value.
+	 * vertexEmiter field. This sequence follows a consisting winding of the vertices in which 
+	 * the interior of the mesh is made up of the voxels with a true value.
 	 * @param 	voxels 		a 3 dimensional array of boolean values
 	 * @param 	boxSize		the size of each cell (same width,length and height)	 
 	*/
